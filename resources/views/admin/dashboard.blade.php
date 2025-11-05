@@ -12,255 +12,384 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f7fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
         }
         
-        .navbar {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: #1e293b;
+            border-right: 1px solid #334155;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-subtitle {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .sidebar-menu a:hover {
+            background: #334155;
+            color: #f1f5f9;
+        }
+        
+        .sidebar-menu a.active {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .topbar {
+            background: #1e293b;
+            border-bottom: 1px solid #334155;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         
-        .navbar h1 {
-            font-size: 24px;
-        }
-        
-        .navbar-links {
+        .topbar-left {
             display: flex;
-            gap: 20px;
             align-items: center;
+            gap: 20px;
         }
         
-        .navbar-links a,
-        .navbar-links form button {
-            color: white;
-            text-decoration: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-size: 14px;
+        .topbar-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-info-top {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            background: #334155;
+            border-radius: 6px;
         }
         
-        .navbar-links a:hover,
-        .navbar-links form button:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .user-info-top span {
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+        
+        .logout-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.2s;
+        }
+        
+        .logout-btn:hover {
+            background: #b91c1c;
         }
         
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
+            padding: 30px;
         }
         
-        .welcome-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .page-header {
             margin-bottom: 30px;
         }
         
-        .welcome-card h2 {
-            color: #333;
-            margin-bottom: 10px;
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 8px;
         }
         
-        .welcome-card p {
-            color: #666;
-            font-size: 16px;
+        .page-subtitle {
+            font-size: 14px;
+            color: #94a3b8;
         }
         
-        .admin-badge {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-left: 10px;
-        }
-        
-        .stats-grid {
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
         
-        .stat-card {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+        .card {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s;
         }
         
-        .stat-number {
+        .card:hover {
+            border-color: #475569;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-card .stat-value {
             font-size: 32px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 10px;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 8px;
         }
         
-        .stat-label {
-            color: #666;
-            font-size: 14px;
+        .stat-card .stat-label {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
         }
         
-        .management {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        .management-section {
             margin-bottom: 30px;
         }
         
-        .management h3 {
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e74c3c;
-            padding-bottom: 10px;
-        }
-        
-        .management-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        
-        .management-links a {
-            display: block;
-            padding: 15px;
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: 500;
-        }
-        
-        .management-links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .user-info {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .user-info h3 {
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e74c3c;
-            padding-bottom: 10px;
-        }
-        
-        .info-row {
-            display: flex;
-            gap: 40px;
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f1f5f9;
             margin-bottom: 15px;
-            flex-wrap: wrap;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #94a3b8;
+        }
+        
+        .button-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 12px 16px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .btn:hover {
+            background: #334155;
+            border-color: #475569;
+            color: #f1f5f9;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+        }
+        
+        .info-card {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
         
         .info-item {
-            flex: 1;
-            min-width: 250px;
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #3b82f6;
         }
         
-        .info-item label {
-            display: block;
-            color: #999;
+        .info-label {
             font-size: 12px;
-            font-weight: 600;
+            color: #94a3b8;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 5px;
         }
         
-        .info-item value {
-            display: block;
-            color: #333;
+        .info-value {
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 220px;
+            }
+            
+            .main-content {
+                margin-left: 220px;
+            }
+            
+            .info-card {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .topbar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <h1>Sistem Reservasi Wisata <span class="admin-badge">ADMIN</span></h1>
-        <div class="navbar-links">
-            <a href="/">Home</a>
-            <span>{{ auth()->user()->username }}</span>
-            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">🏖️ Wisata Admin</div>
+            <div class="sidebar-subtitle">Sistem Reservasi Wisata</div>
         </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="/dashboard-admin" class="active">📊 Dashboard</a></li>
+            <li><a href="#">👥 Kelola Users</a></li>
+            <li><a href="#">📅 Kelola Reservasi</a></li>
+            <li><a href="#">🗺️ Kelola Destinasi</a></li>
+            <li><a href="#">📈 Laporan Penjualan</a></li>
+            <li><a href="#">⚙️ Pengaturan</a></li>
+        </ul>
     </div>
     
-    <div class="container">
-        <div class="welcome-card">
-            <h2>Selamat Datang, Admin {{ auth()->user()->username }}! 👨‍💼</h2>
-            <p>Kelola sistem reservasi wisata dari panel admin ini.</p>
-        </div>
-        
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Total Users</div>
+    <div class="main-content">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="topbar-title">Dashboard</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Total Reservasi</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">0</div>
-                <div class="stat-label">Destinasi Wisata</div>
+            <div class="topbar-right">
+                <div class="user-info-top">
+                    <span>{{ auth()->user()->username }}</span>
+                </div>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
             </div>
         </div>
         
-        <div class="management">
-            <h3>📋 Menu Manajemen</h3>
-            <div class="management-links">
-                <a href="#">Kelola Users</a>
-                <a href="#">Kelola Reservasi</a>
-                <a href="#">Kelola Destinasi</a>
-                <a href="#">Laporan Penjualan</a>
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">Selamat Datang, Admin! 👨‍💼</div>
+                <div class="page-subtitle">Kelola sistem reservasi wisata dari panel ini</div>
             </div>
-        </div>
-        
-        <div class="user-info">
-            <h3>Informasi Admin</h3>
-            <div class="info-row">
-                <div class="info-item">
-                    <label>Username</label>
-                    <value>{{ auth()->user()->username }}</value>
+            
+            <div class="grid">
+                <div class="card stat-card">
+                    <div class="stat-value">{{ \App\Models\Users::where('role', 'user')->count() }}</div>
+                    <div class="stat-label">Total Users</div>
                 </div>
-                <div class="info-item">
-                    <label>Email</label>
-                    <value>{{ auth()->user()->email }}</value>
+                <div class="card stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Total Reservasi</div>
+                </div>
+                <div class="card stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Destinasi Wisata</div>
                 </div>
             </div>
-            <div class="info-row">
-                <div class="info-item">
-                    <label>Nomor Handphone</label>
-                    <value>{{ auth()->user()->No_Handphone }}</value>
+            
+            <div class="management-section">
+                <div class="section-title">📋 Menu Manajemen</div>
+                <div class="button-group">
+                    <a href="#" class="btn btn-primary">👥 Kelola Users</a>
+                    <a href="#" class="btn btn-primary">📅 Kelola Reservasi</a>
+                    <a href="#" class="btn btn-primary">🗺️ Kelola Destinasi</a>
+                    <a href="#" class="btn btn-primary">📈 Laporan Penjualan</a>
                 </div>
-                <div class="info-item">
-                    <label>Status</label>
-                    <value><span style="background: #fadbd8; padding: 5px 10px; border-radius: 3px; color: #c0392b;">{{ ucfirst(auth()->user()->role) }}</span></value>
+            </div>
+            
+            <div class="management-section">
+                <div class="section-title">👤 Informasi Admin</div>
+                <div class="card">
+                    <div class="info-card">
+                        <div class="info-item">
+                            <div class="info-label">Username</div>
+                            <div class="info-value">{{ auth()->user()->username }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Email</div>
+                            <div class="info-value">{{ auth()->user()->email }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Nomor Handphone</div>
+                            <div class="info-value">{{ auth()->user()->No_Handphone }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Role</div>
+                            <div class="info-value">{{ ucfirst(auth()->user()->role) }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
