@@ -202,7 +202,6 @@
         <h1>Sistem Reservasi Wisata <span class="admin-badge">ADMIN</span></h1>
         <div class="navbar-links">
             <a href="/">Home</a>
-            <a href="/about">About</a>
             <span>{{ auth()->user()->username }}</span>
             <form action="{{ route('logout') }}" method="POST" style="display: inline;">
                 @csrf
