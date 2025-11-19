@@ -18,15 +18,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Show register form
-     */
-    public function showRegister()
-    {
-        return view('auth.register');
-    }
-
-    /**
-     * Handle login
+     * Handle login - Admin only
      */
     public function login(Request $request)
     {
@@ -39,41 +31,21 @@ class AuthController extends Controller
             $request->session()->regenerate();
             $user = Auth::user();
 
-            // Redirect berdasarkan role
-            if ($user->role === 'admin') {
-                return redirect()->intended('/dashboard-admin')->with('success', 'Welcome Admin!');
+            // Hanya admin yang bisa login
+            if ($user->role !== 'admin') {
+                Auth::logout();
+                $request->session()->invalidate();
+                return back()->withErrors([
+                    'email' => 'Hanya admin yang dapat login.',
+                ])->onlyInput('email');
             }
-            return redirect()->intended('/dashboard-user')->with('success', 'Welcome!');
+
+            return redirect()->intended(route('admin.dashboard'))->with('success', 'Selamat datang Admin!');
         }
 
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email');
-    }
-
-    /**
-     * Handle register
-     */
-    public function register(Request $request)
-    {
-        $validated = $request->validate([
-            'username' => 'required|string|unique:users|min:3|max:20',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|confirmed',
-            'No_Handphone' => 'required|numeric|digits_between:10,15',
-        ]);
-
-        $user = Users::create([
-            'username' => $validated['username'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-            'No_Handphone' => $validated['No_Handphone'],
-            'role' => 'user', // Default role adalah user (customer)
-        ]);
-
-        Auth::login($user);
-
-        return redirect('/dashboard-user')->with('success', 'Akun berhasil dibuat!');
     }
 
     /**
