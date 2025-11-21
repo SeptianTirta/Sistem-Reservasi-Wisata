@@ -581,7 +581,7 @@ Proyek ini dibuat untuk keperluan pendidikan dan dapat digunakan secara bebas se
 
 ## ✨ Changelog
 
-### v2.1.0 - Status Management & Audit Trail (Nov 21, 2025) ⭐ NEW
+### v2.1.0 - Status Management & Audit Trail (Nov 21, 2025)
 - ✅ Status Management dengan 3 status (pending, confirmed, cancelled)
 - ✅ Quick Action buttons di detail reservasi (Konfirmasi, Batalkan)
 - ✅ Modal form untuk pembatalan dengan reason input
@@ -607,4 +607,3 @@ Proyek ini dibuat untuk keperluan pendidikan dan dapat digunakan secara bebas se
 ---
 
 **Last Updated:** November 21, 2025  
-**Status:** ✅ Production Ready (v2.1.0)
