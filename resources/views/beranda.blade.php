@@ -196,7 +196,7 @@
         /* About Section */
         .about {
             padding: 80px 20px;
-            background: #f8f9fa;
+            background: #faf8f8ff;
         }
 
         .about-content {
@@ -322,7 +322,7 @@
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container-fluid px-4">
             <a class="navbar-brand" href="#">
-                <i class="bi bi-building"></i> Reservasi Wisata
+                <i class="bi bi-building
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
